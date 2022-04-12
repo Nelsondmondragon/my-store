@@ -1,3 +1,78 @@
+<h1>ngSwitch</h1>
+<input type="text" required [(ngModel)]="person.name">
+<div [ngSwitch]="person.name">
+
+    <p *ngSwitchCase="'nelson'"> Soy nelson</p>
+    <p *ngSwitchCase="'elsa'"> Soy elsa</p>
+    <p *ngSwitchCase="'martha'"> Soy martha</p>
+    <p *ngSwitchDefault=""> No hace match</p>
+
+
+</div>
+
+<h1>*ngFor</h1>
+<div>
+    <div *ngFor="let product of products">
+        <img width="200px" [src]="product.image" alt="image">
+        <h2>Precio: {{product.price}}</h2>
+        <p>Nombre: {{product.name}}</p>
+    </div>
+</div>
+<input type="text" required [(ngModel)]="newName">
+<button (click)="addName()">Add name</button>
+<ul>
+    <li *ngIf="names.length === 0"> no hay nombre</li>
+    <li *ngFor="let name of names; index as i">
+        {{i}} {{name}}
+        <button (click)="deleteName(i)">Delete</button>
+    </li>
+</ul>
+
+
+<h1>*ngIf</h1>
+<input type="text" required [(ngModel)]="person.name">
+
+<p *ngIf="person.name==='nelson' ; else myBlock"> Soy nelson</p>
+
+<ng-template #myBlock>
+    <p>Bloque else</p>
+</ng-template>
+
+<h1>NgModel</h1>
+<p>Nombre {{person.name}}</p>
+<input type="text" required #nameInput="ngModel" [(ngModel)]="person.name">
+
+<p>Valid : {{nameInput.valid}}</p>
+
+
+<input type="number" max="18" min="10" required #nameAge="ngModel" [(ngModel)]="person.age">
+<p>Valid: {{nameAge.valid}}</p>
+
+
+<h1>Eventos</h1>
+<button [disabled]="buttonDisable">Enviar</button>
+<button (click)="toggleButton()">Toogle button</button>
+<p>Edad {{person.age}}</p>
+<button (click)="increaseAge()">Age ++</button>
+
+<div class="box" (scroll)="onScroll($event)">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, minima! Exercitationem aliquam quam commodi, odio
+        maxime dolorum consequuntur vitae dolores cumque voluptatum nam iste inventore! Id debitis obcaecati facilis
+        doloremque!</p>
+</div>
+
+<input type="text" [value]="person.name" (keyup)="changeName($event)">
+
+<p>nombre {{person.name}}</p>
+<h1>Propiedades</h1>
+<button [disabled]="buttonDisable">Enviar</button>
+<input type="text" [value]="person.name" />
+
+<progress max="100" [value]="person.age"></progress>
+<img width="100" [src]="person.avatar" alt="">
+
+<hr />
+
 <h1>Hola Mundo</h1>
 <h2>{{'Hola Mundo'.repeat(5)}}</h2>
 <p>{{3+3}}</p>
