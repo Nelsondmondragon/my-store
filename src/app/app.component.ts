@@ -7,6 +7,16 @@ import { Product } from './product.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+  register = {
+    name: '',
+    email: '',
+    password: ''
+  }
+
+
+
+  widthImg: number = 10;
   name = 'Nelson';
   age = 22;
   image = 'https://source.unsplash.com/random';
@@ -17,6 +27,13 @@ export class AppComponent {
     name: 'Nelson',
     age: 18,
     avatar: 'https://source.unsplash.com/random'
+  }
+
+
+  box = {
+    width: 100,
+    height: 100,
+    background: 'red'
   }
 
   names: string[] = ['Nelson', 'Juan', 'Ricardo'];
@@ -93,5 +110,9 @@ export class AppComponent {
 
   deleteName(index: number) {
     this.names.splice(index, 1);
+  }
+
+  onRegister(){
+    console.log(this.register);
   }
 }
